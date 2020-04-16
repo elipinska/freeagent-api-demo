@@ -10,7 +10,7 @@ module FreeagentApi
       @client_secret = Rails.configuration.oauth[:secret]
       @redirect_uri = Rails.configuration.oauth[:redirect_uri]
       @base_uri = Rails.configuration.oauth[:base_uri]
-      @token_uri = Rails.configuration.oauth[:base_token_uri]
+      @token_uri = Rails.configuration.oauth[:token_uri]
     end
 
     def authorize_url
@@ -22,10 +22,10 @@ module FreeagentApi
       basic_auth = {
         username: Rails.configuration.oauth[:client_id],
         password: Rails.configuration.oauth[:secret],
-      }  
+      }
       body = {
         grant_type: "authorization_code",
-        code: authorisation_code, 
+        code: authorisation_code,
         redirect_uri: Rails.configuration.oauth[:redirect_uri],
       }
 

@@ -1,10 +1,4 @@
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
-<h1>New Freeagent Api Authentication</h1>
-
-<%= link_to "Hello", @url.to_s %>
-
-<%= link_to 'Back', root_path %>
+<p id="notice"><%= notice %></p>
+<h1>Access the FreeAgent API</h1>
+<%= image_tag("briefcase.svg") %>
+<%= link_to "Authenticate", @url.to_s, class: "btn" %>

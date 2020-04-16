@@ -7,9 +7,10 @@ module FreeagentApi
     # GET /freeagent_api/authentications/1
     # GET /freeagent_api/authentications/1.json
     def show
-      @company = HTTParty.get("https://api.sandbox.freeagent.com/v2/company", headers: {
+      company_json = HTTParty.get("https://api.sandbox.freeagent.com/v2/company", headers: {
         "Authorization": "Bearer #{@freeagent_api_authentication.access_token}"
         }).body
+      @company = JSON.parse(company_json)["company"]
     end
 
     # GET /freeagent_api/authentications/new
@@ -23,23 +24,20 @@ module FreeagentApi
     def create
       response = get_tokens(authorisation_code: params["code"])
 
-      unless response.success? 
-        flash[:alert] = "Something went wrong... Better luck next time!"
-        redirect_to new_freeagent_api_authentication_path
+      unless response.success?
+        redirect_to new_freeagent_api_authentication_path, notice: "Something went wrong... Better luck next time!"
         return
       end
 
       @freeagent_api_authentication = FreeagentApi::Authentication.new(
-        access_token: response["access_token"], 
-        refresh_token: response["refresh_token"], 
+        access_token: response["access_token"],
+        refresh_token: response["refresh_token"],
         expires_at: Time.zone.now + response["expires_in"]
       )
 
-      flash[:alert] = "You've successfully authenticated with FreeAgent!"
-
       respond_to do |format|
         if @freeagent_api_authentication.save
-          format.html { redirect_to @freeagent_api_authentication }
+          format.html { redirect_to @freeagent_api_authentication, notice: "You've successfully authenticated with FreeAgent!"}
           format.json { render :show, status: :created, location: @freeagent_api_authentication }
         else
           format.html { redirect_to new_freeagent_api_authentication_path }
@@ -53,7 +51,7 @@ module FreeagentApi
     def update
       respond_to do |format|
         if @freeagent_api_authentication.update(freeagent_api_authentication_params)
-          format.html { redirect_to @freeagent_api_authentication, notice: 'Authentication was successfully updated.' }
+          format.html { redirect_to @freeagent_api_authentication, notice: "Authentication was successfully updated." }
           format.json { render :show, status: :ok, location: @freeagent_api_authentication }
         else
           format.html { render :edit }
@@ -81,7 +79,7 @@ module FreeagentApi
     def set_api_client
       @api_client ||= FreeagentApi::Client.new
     end
-      
+
     # Use callbacks to share common setup or constraints between actions.
     def set_freeagent_api_authentication
       @freeagent_api_authentication = FreeagentApi::Authentication.find(params[:id])
