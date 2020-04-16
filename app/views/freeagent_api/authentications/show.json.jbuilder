@@ -1,0 +1,1 @@
+json.partial! "freeagent_api_authentications/freeagent_api_authentication", freeagent_api_authentication: @freeagent_api_authentication

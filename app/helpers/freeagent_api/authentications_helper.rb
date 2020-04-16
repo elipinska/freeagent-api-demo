@@ -1,0 +1,2 @@
+module FreeagentApi::AuthenticationsHelper
+end
