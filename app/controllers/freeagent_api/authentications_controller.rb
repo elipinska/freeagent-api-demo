@@ -11,6 +11,11 @@ module FreeagentApi
         "Authorization": "Bearer #{@freeagent_api_authentication.access_token}"
         }).body
       @company = JSON.parse(company_json)["company"]
+
+      user_json = HTTParty.get("https://api.sandbox.freeagent.com//v2/users/me", headers: {
+        "Authorization": "Bearer #{@freeagent_api_authentication.access_token}"
+        }).body
+      @user = JSON.parse(user_json)["user"]
     end
 
     # GET /freeagent_api/authentications/new
