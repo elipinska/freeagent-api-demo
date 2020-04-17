@@ -1,0 +1,7 @@
+<h2>Here are your <%= @response[:name] %> details:</h2>
+<table>
+  <% @response[:details].each do |field, value| %>
+    <tr><td><%= field.capitalize %></td><td><%= value %></td></tr>
+  <% end %>
+</table>
+<%= link_to "Make another request", freeagent_api_requests_path, class: "btn" %>

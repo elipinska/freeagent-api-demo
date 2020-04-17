@@ -3,7 +3,7 @@ module FreeagentApi
   class AuthenticationsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_freeagent_api_authentication, only: [:show, :edit, :update, :destroy]
-    before_action :set_api_client, only: [:new, :create]
+    before_action :set_api_client, only: [:new, :create, :update]
 
     # GET /freeagent_api/authentications/1
     # GET /freeagent_api/authentications/1.json
@@ -61,14 +61,12 @@ module FreeagentApi
     # PATCH/PUT /freeagent_api/authentications/1
     # PATCH/PUT /freeagent_api/authentications/1.json
     def update
-      respond_to do |format|
-        if @freeagent_api_authentication.update(freeagent_api_authentication_params)
-          format.html { redirect_to @freeagent_api_authentication, notice: "Authentication was successfully updated." }
-          format.json { render :show, status: :ok, location: @freeagent_api_authentication }
-        else
-          format.html { render :edit }
-          format.json { render json: @freeagent_api_authentication.errors, status: :unprocessable_entity }
-        end
+      new_params = @api_client.refresh_access_token(refresh_token: @freeagent_api_authentication.refresh_token)
+
+      if @freeagent_api_authentication.update_access_token(new_params)
+        redirect_to @freeagent_api_authentication, notice: "Access token was successfully updated."
+      else
+        render :edit
       end
     end
 

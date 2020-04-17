@@ -31,5 +31,19 @@ module FreeagentApi
 
       HTTParty.post(uri, basic_auth: basic_auth, body: body)
     end
+
+    def refresh_access_token(refresh_token:)
+      uri = Rails.configuration.oauth[:token_uri]
+      basic_auth = {
+        username: Rails.configuration.oauth[:client_id],
+        password: Rails.configuration.oauth[:secret],
+      }
+      body = {
+        grant_type: "refresh_token",
+        refresh_token: refresh_token,
+      }
+
+      response = HTTParty.post(uri, basic_auth: basic_auth, body: body)
+    end
   end
 end
