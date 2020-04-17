@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <div class="header">
+      <% if user_signed_in? %>
+        <%= link_to('Edit profile', edit_user_registration_path) %>
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+      <% end %>
+    </div>
     <p id="notice"><%= notice %></p>
     <%= yield %>
   </body>

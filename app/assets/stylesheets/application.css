@@ -76,3 +76,11 @@ form label, p.show {
 .check-box {
   width: 20px;
 }
+
+#logout-link {
+  text-align: right;
+}
+
+.header {
+  text-align: right;
+}
