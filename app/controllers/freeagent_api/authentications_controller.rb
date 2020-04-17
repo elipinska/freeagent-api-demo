@@ -21,6 +21,11 @@ module FreeagentApi
 
     # GET /freeagent_api/authentications/new
     def new
+      existing_authentication = current_user.freeagent_api_authentication
+      if existing_authentication
+        redirect_to existing_authentication, notice: "Looks like you already have access to the API!"
+      end
+
       @freeagent_api_authentication = FreeagentApi::Authentication.new
       @url = @api_client.authorize_url
     end
@@ -38,7 +43,8 @@ module FreeagentApi
       @freeagent_api_authentication = FreeagentApi::Authentication.new(
         access_token: response["access_token"],
         refresh_token: response["refresh_token"],
-        expires_at: Time.zone.now + response["expires_in"]
+        expires_at: Time.zone.now + response["expires_in"],
+        user: current_user
       )
 
       respond_to do |format|

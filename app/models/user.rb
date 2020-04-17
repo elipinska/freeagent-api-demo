@@ -3,5 +3,5 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one :authentication
+  has_one :freeagent_api_authentication, class_name: "FreeagentApi::Authentication", dependent: :destroy
 end
