@@ -1,4 +1,5 @@
 class FreeagentApi::RequestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_freeagent_api_request, only: [:show, :edit, :update, :destroy]
 
   # GET /freeagent_api/requests

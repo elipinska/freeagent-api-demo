@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module FreeagentApi
   class AuthenticationsController < ApplicationController
+    before_action :authenticate_user!
     before_action :set_freeagent_api_authentication, only: [:show, :edit, :update, :destroy]
     before_action :set_api_client, only: [:new, :create]
 
