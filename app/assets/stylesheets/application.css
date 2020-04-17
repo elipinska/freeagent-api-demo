@@ -24,6 +24,10 @@ table {
   margin: auto
 }
 
+th {
+  font-size: 1rem;
+}
+
 th, td {
   border-bottom: 1px solid #ddd;
 }
@@ -54,3 +58,21 @@ th, td {
   color: white;
 }
 
+form input {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem
+}
+
+form label, p.show {
+  font-size: 1rem
+}
+
+.check-box {
+  width: 20px;
+}

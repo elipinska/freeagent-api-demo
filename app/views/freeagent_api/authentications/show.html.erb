@@ -1,3 +1,6 @@
+<h2>Your OAuth tokens are safe with us 👌.</h2>
+<h3>Now take a look at some of the cool things you can do with the FreeAgent API.</h3>
+<%= link_to "FreeAgent API requests", freeagent_api_requests_path, class: "btn" %>
 <h2>Here are your company details:</h2>
 <table>
   <% @company.each do |field, value| %>
@@ -11,5 +14,3 @@
     <tr><td><%= field.capitalize %></td><td><%= value %></td></tr>
   <% end %>
 </table>
-
-<%= link_to 'Back', root_path %>
