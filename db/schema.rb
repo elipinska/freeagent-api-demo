@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_172522) do
+ActiveRecord::Schema.define(version: 2020_04_17_170857) do
 
   create_table "freeagent_api_authentications", force: :cascade do |t|
     t.string "access_token"
     t.string "refresh_token"
     t.datetime "expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "freeagent_api_requests", force: :cascade do |t|
+    t.string "endpoint"
+    t.string "method"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

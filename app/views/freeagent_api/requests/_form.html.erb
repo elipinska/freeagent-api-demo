@@ -1,0 +1,27 @@
+<%= form_with(model: freeagent_api_request, local: true) do |form| %>
+  <% if freeagent_api_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(freeagent_api_request.errors.count, "error") %> prohibited this freeagent_api_request from being saved:</h2>
+
+      <ul>
+      <% freeagent_api_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :endpoint %>
+    <%= form.text_field :endpoint %>
+  </div>
+
+  <div class="field">
+    <%= form.label :method %>
+    <%= form.text_field :method %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Endpoint:</strong>
+  <%= @freeagent_api_request.endpoint %>
+</p>
+
+<p>
+  <strong>Method:</strong>
+  <%= @freeagent_api_request.method %>
+</p>
+
+<%= link_to 'Edit', edit_freeagent_api_request_path(@freeagent_api_request) %> |
+<%= link_to 'Back', freeagent_api_requests_path %>

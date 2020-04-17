@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :freeagent_api do
+    resources :requests
+  end
   get "/auth/freeagent/callback", to: "freeagent_api/authentications#create"
   root "freeagent_api/authentications#new"
 
