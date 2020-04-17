@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   namespace :freeagent_api do
-    resources :requests
+    resources :requests do
+      member do
+        get :send_out
+      end
+    end
   end
   get "/auth/freeagent/callback", to: "freeagent_api/authentications#create"
   root "freeagent_api/authentications#new"

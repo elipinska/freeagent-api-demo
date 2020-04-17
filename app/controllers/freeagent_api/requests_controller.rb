@@ -1,6 +1,6 @@
 class FreeagentApi::RequestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_freeagent_api_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_freeagent_api_request, only: [:show, :edit, :update, :destroy, :send_out]
 
   # GET /freeagent_api/requests
   # GET /freeagent_api/requests.json
@@ -60,6 +60,11 @@ class FreeagentApi::RequestsController < ApplicationController
       format.html { redirect_to freeagent_api_requests_url, notice: 'Request was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def send_out
+    @response = @freeagent_api_request.make_request(authentication: current_user.freeagent_api_authentication)
+    render :send_out
   end
 
   private
