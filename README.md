@@ -10,7 +10,7 @@ A simple and entirely unofficial Rails app which I've cobbled together as a demo
 * Clone the repo with `git clone git@github.com:elipinska/freeagent-api-demo.git`
 * Navigate to the repo `cd freeagent-api-demo`
 * Install dependencies with `bundle install`
-* Set up the database: `bin/rails db:setup && bin/rails db:migrate`
+* Set up the database: `bin/rails db:setup`
 * Start the server: `bin/rails s`
 
 In order to be able to authenticate with the FreeAgent API, you'll need an app registered on the FreeAgent Developer Dashboard and a sandbox FreeAgent account. Instructions on how to set these up can be found at https://dev.freeagent.com/docs/quick_start.
@@ -30,7 +30,7 @@ export FA_API_REDIRECT_URL="http://localhost:<PORT_NUMBER>/auth/freeagent/callba
 
 The same URL should also be added to the app you've created on the Developer Dashboard under `OAuth redirect URIs`.
 
-Alternatively, you can edit these configs directly in `config/environments/development.rb`
+Instead of using environment variables for the above configs, you can also put them directly in `config/environments/development.rb`
 
 ## How to use
 
