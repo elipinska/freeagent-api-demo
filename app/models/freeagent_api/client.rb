@@ -45,5 +45,21 @@ module FreeagentApi
 
       response = HTTParty.post(uri, basic_auth: basic_auth, body: body)
     end
+
+    def make_request(authentication:, request:)
+      request_body = parsed_body(message: request)
+      response_json = HTTParty.public_send(
+        request.method,
+        "https://api.sandbox.freeagent.com/#{request.endpoint}",
+        headers: {
+        "Authorization": "Bearer #{authentication.access_token}"
+        },
+        body: request_body)
+    end
+
+    def parsed_body(message:)
+      body = message.body
+      JSON.parse(body) if body.present?
+    end
   end
 end

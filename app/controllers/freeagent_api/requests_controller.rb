@@ -63,9 +63,13 @@ class FreeagentApi::RequestsController < ApplicationController
   end
 
   def trigger
-    response = @freeagent_api_request.make_request(authentication: current_user.freeagent_api_authentication)
+    api_client = FreeagentApi::Client.new
+    response = api_client.make_request(
+      authentication: current_user.freeagent_api_authentication,
+      request: @freeagent_api_request
+    )
     @response_code = response.code
-    @response_body = @freeagent_api_request.parsed_response_body(response: response)
+    @response_body = api_client.parsed_body(message: response)
     render :trigger
   end
 
