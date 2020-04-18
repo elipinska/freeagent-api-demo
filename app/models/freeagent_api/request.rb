@@ -4,10 +4,5 @@ class FreeagentApi::Request < ApplicationRecord
       "Authorization": "Bearer #{authentication.access_token}"
       }).body
     parsed_response = JSON.parse(response_json)
-
-    object_name = parsed_response.keys.first
-    details = parsed_response[object_name]
-
-    {name: object_name, details: details}
   end
 end
