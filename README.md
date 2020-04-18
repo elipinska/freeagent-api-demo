@@ -1,6 +1,8 @@
 # README
 
-A simple and entiely unofficial Rails app which I've cobbled together as a demo of the authentication process for the FreeAgent API. It allows you to go through the full OAuth flow, refresh your tokens and try out some sample endpoints (at the moment of writing, only GET requests are supported).
+A simple and entirely unofficial Rails app which I've cobbled together as a demo of the authentication process for the FreeAgent API. It allows you to go through the full OAuth flow, refresh your tokens and try out some sample endpoints (at the moment of writing, only GET requests are supported).
+
+![alt text](https://github.com/elipinska/freeagent-api-demo/blob/master/readme-images/screenshot.png "Authentication page")
 
 ## Installation instructions
 
@@ -27,3 +29,12 @@ export FA_API_REDIRECT_URL="http://localhost:<PORT_NUMBER>/auth/freeagent/callba
 ```
 
 Alternatively, you can edit these configs directly in `config/environments/development.rb`
+
+## How to use
+
+Once you've authenticated with the API, you'll be able to add endpoints you'd like to be able to query.
+Try it out with `/v2/company`, `v2/users/me` and `/v2/invoices` for starters!
+
+## Credits
+
+Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> and <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
