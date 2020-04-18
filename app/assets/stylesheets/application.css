@@ -21,7 +21,7 @@ body {
 
 table {
   text-align: left;
-  margin: auto
+  margin: auto;
 }
 
 th {
@@ -30,6 +30,10 @@ th {
 
 th, td {
   border-bottom: 1px solid #ddd;
+}
+
+tr {
+  height: 18px
 }
 
 .btn {
