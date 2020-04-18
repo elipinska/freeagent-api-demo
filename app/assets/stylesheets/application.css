@@ -62,7 +62,7 @@ tr {
   color: white;
 }
 
-form input {
+form input, textarea {
   width: 25%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -71,6 +71,10 @@ form input {
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 1rem
+}
+
+textarea {
+  height: 10rem;
 }
 
 form label, p.show {

@@ -15,7 +15,11 @@ module FreeagentApi::RequestsHelper
     table_contents.html_safe
   end
 
-  def results_display_name(api_response)
-    api_response.keys.first
+  def results_display_name(response_body:)
+    response_body.keys.first
+  end
+
+  def results_to_display?(response_body:)
+    response_body.present?
   end
 end

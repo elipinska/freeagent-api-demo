@@ -8,6 +8,13 @@
   <%= @freeagent_api_request.method %>
 </p>
 
+<% if @freeagent_api_request.body.present? %>
+  <p class="show">
+    <strong>Body:</strong>
+    <%= @freeagent_api_request.body %>
+  </p>
+<% end %>
+
 <%= link_to "Send request", trigger_freeagent_api_request_path, class: "btn" %>
 
 <%= link_to 'Edit', edit_freeagent_api_request_path(@freeagent_api_request) %> |

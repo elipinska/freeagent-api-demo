@@ -63,7 +63,9 @@ class FreeagentApi::RequestsController < ApplicationController
   end
 
   def trigger
-    @response = @freeagent_api_request.make_request(authentication: current_user.freeagent_api_authentication)
+    response = @freeagent_api_request.make_request(authentication: current_user.freeagent_api_authentication)
+    @response_code = response.code
+    @response_body = @freeagent_api_request.parsed_response_body(response: response)
     render :trigger
   end
 
@@ -75,6 +77,6 @@ class FreeagentApi::RequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def freeagent_api_request_params
-      params.require(:freeagent_api_request).permit(:endpoint, :method)
+      params.require(:freeagent_api_request).permit(:endpoint, :method, :body)
     end
 end

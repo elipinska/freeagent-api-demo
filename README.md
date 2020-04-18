@@ -1,6 +1,6 @@
 # README
 
-A simple and entirely unofficial Rails app which I've cobbled together as a demo of the authentication process for the FreeAgent API. It allows you to go through the full OAuth flow, refresh your tokens and try out some sample endpoints (at the moment of writing, only GET requests are supported).
+A simple and entirely unofficial Rails app which I've cobbled together as a demo of the authentication process for the FreeAgent API. It allows you to go through the full OAuth flow, refresh your tokens, and try out available endpoints.
 
 ![alt text](https://github.com/elipinska/freeagent-api-demo/blob/master/readme-images/screenshot.png "Authentication page")
 
