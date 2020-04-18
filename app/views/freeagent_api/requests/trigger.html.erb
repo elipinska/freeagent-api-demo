@@ -1,10 +1,11 @@
-<h2>API responded with status <%= @response_code %>:</h2>
+<h2>API responded with status <%= @response_code %></h2>
 <% if results_to_display?(response_body: @response_body) %>
   <h2>Here are the details of your <%= results_display_name(response_body: @response_body) %>:</h2>
     <table>
       <%= display_nested_results("", @response_body) %>
     </table>
-  <%= link_to "Make another request", freeagent_api_requests_path, class: "btn" %>
 <% else %>
   <h2>And that's all we know!</h2>
+  <p> ¯\_(ツ)_/¯ </p>
 <% end %>
+<%= link_to "Make another request", freeagent_api_requests_path, class: "btn" %>
