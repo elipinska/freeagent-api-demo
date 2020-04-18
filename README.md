@@ -33,7 +33,7 @@ Alternatively, you can edit these configs directly in `config/environments/devel
 ## How to use
 
 Once you've authenticated with the API, you'll be able to add endpoints you'd like to be able to query.
-Try it out with `/v2/company`, `v2/users/me` and `/v2/invoices` for starters!
+A few (`/v2/company`, `v2/users/me` and `/v2/invoices`) have already been added to the database seeds for you to get you started!
 
 ## Credits
 
