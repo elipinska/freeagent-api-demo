@@ -1,8 +1,8 @@
 Rails.application.configure do
   config.oauth = {
-    client_id: ENV['FA_API_CLIENT_ID'],         # replace with 'examplePass' instead         # replace with 'examplePass' instead,
-    secret: ENV['FA_API_CLIENT_SECRET'],         # replace with 'examplePass' instead         # replace with 'examplePass' instead,
-    redirect_uri: ENV['FA_API_REDIRECT_URL'],         # replace with 'examplePass' instead         # replace with 'examplePass' instead,
+    client_id: ENV['FA_API_CLIENT_ID'],         # replace with 'examplePass' instead         # replace with 'examplePass' instead
+    secret: ENV['FA_API_CLIENT_SECRET'],         # replace with 'examplePass' instead         # replace with 'examplePass' instead
+    redirect_uri: ENV['FA_API_REDIRECT_URL'],         # replace with 'examplePass' instead         # replace with 'examplePass' instead
     base_uri: "https://api.sandbox.freeagent.com/v2/approve_app?",
     token_uri: "https://api.sandbox.freeagent.com/v2/token_endpoint"
   }
