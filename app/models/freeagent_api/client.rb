@@ -46,7 +46,7 @@ module FreeagentApi
       response = HTTParty.post(uri, basic_auth: basic_auth, body: body)
     end
 
-    def make_request(authentication:, request:)
+    def send_request(authentication:, request:)
       request_body = parsed_body(message: request)
       response_json = HTTParty.public_send(
         request.method,

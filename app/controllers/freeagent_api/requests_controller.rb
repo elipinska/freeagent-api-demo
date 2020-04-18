@@ -64,7 +64,7 @@ class FreeagentApi::RequestsController < ApplicationController
 
   def trigger
     api_client = FreeagentApi::Client.new
-    response = api_client.make_request(
+    response = api_client.send_request(
       authentication: current_user.freeagent_api_authentication,
       request: @freeagent_api_request
     )
