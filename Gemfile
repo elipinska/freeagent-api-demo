@@ -43,6 +43,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
   gem 'pry'
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'factory_bot_rails', '~> 5.1.1'
+  gem 'database_cleaner', '~> 1.8.4'
+  gem 'shoulda-matchers', '~> 4.3.0'
 end
 
 group :development do

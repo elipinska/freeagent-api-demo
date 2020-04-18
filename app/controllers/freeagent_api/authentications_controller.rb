@@ -8,15 +8,6 @@ module FreeagentApi
     # GET /freeagent_api/authentications/1
     # GET /freeagent_api/authentications/1.json
     def show
-      company_json = HTTParty.get("https://api.sandbox.freeagent.com/v2/company", headers: {
-        "Authorization": "Bearer #{@freeagent_api_authentication.access_token}"
-        }).body
-      @company = JSON.parse(company_json)["company"]
-
-      user_json = HTTParty.get("https://api.sandbox.freeagent.com/v2/users/me", headers: {
-        "Authorization": "Bearer #{@freeagent_api_authentication.access_token}"
-        }).body
-      @user = JSON.parse(user_json)["user"]
     end
 
     # GET /freeagent_api/authentications/new
@@ -26,7 +17,6 @@ module FreeagentApi
         redirect_to existing_authentication, notice: "Looks like you already have access to the API!"
       end
 
-      @freeagent_api_authentication = FreeagentApi::Authentication.new
       @url = @api_client.authorize_url
     end
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class FreeagentApi::RequestsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_freeagent_api_request, only: [:show, :edit, :update, :destroy, :trigger]

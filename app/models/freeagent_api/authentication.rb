@@ -5,6 +5,7 @@ module FreeagentApi
     validates :user, presence: true
 
     def update_access_token(params)
+      raise "No new params have been given" if params.nil?
       new_params = params.symbolize_keys
       access_token = new_params.fetch(:access_token)
       expires_at = new_params[:expires_at] ? new_params[:expires_at] : (Time.zone.now + new_params.fetch(:expires_in))
