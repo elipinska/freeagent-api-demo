@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Endpoint</th>
       <th>Method</th>
       <th colspan="3"></th>
@@ -12,6 +13,7 @@
   <tbody>
     <% @freeagent_api_requests.each do |freeagent_api_request| %>
       <tr>
+        <td><%= freeagent_api_request.name %></td>
         <td><%= freeagent_api_request.endpoint %></td>
         <td><%= freeagent_api_request.method %></td>
         <td><%= link_to 'Show', freeagent_api_request %></td>

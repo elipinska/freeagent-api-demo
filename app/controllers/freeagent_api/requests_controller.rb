@@ -81,6 +81,6 @@ class FreeagentApi::RequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def freeagent_api_request_params
-      params.require(:freeagent_api_request).permit(:endpoint, :method, :body)
+      params.require(:freeagent_api_request).permit(:name, :endpoint, :method, :body)
     end
 end
