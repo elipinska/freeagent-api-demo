@@ -1,4 +1,7 @@
 <h2>Your OAuth tokens are safe with us 👌.</h2>
+<h3>Now take a look at some of the cool things you can do with the FreeAgent API.</h3>
+<%= link_to "FreeAgent API requests", freeagent_api_requests_path, class: "btn" %>
+<br>
 <p>Your access token will expire in <%= distance_of_time_in_words(Time.zone.now, @freeagent_api_authentication.expires_at) %>.</p>
 <%= form_with(model: @freeagent_api_authentication, local: true) do |form| %>
   <% if @freeagent_api_authentication.errors.any? %>
@@ -16,6 +19,3 @@
     <%= form.submit "Renew access token", class:"btn", data: { confirm: "Are you sure?" } %>
   </div>
 <% end %>
-<br>
-<h3>Now take a look at some of the cool things you can do with the FreeAgent API.</h3>
-<%= link_to "FreeAgent API requests", freeagent_api_requests_path, class: "btn" %>
