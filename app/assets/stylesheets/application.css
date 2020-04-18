@@ -63,7 +63,7 @@ tr {
 }
 
 form input, textarea {
-  width: 25%;
+  width: 35%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -74,7 +74,7 @@ form input, textarea {
 }
 
 textarea {
-  height: 10rem;
+  height: 15rem;
 }
 
 form label, p.show {
