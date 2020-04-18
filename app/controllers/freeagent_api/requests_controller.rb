@@ -1,6 +1,6 @@
 class FreeagentApi::RequestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_freeagent_api_request, only: [:show, :edit, :update, :destroy, :send_out]
+  before_action :set_freeagent_api_request, only: [:show, :edit, :update, :destroy, :results]
 
   # GET /freeagent_api/requests
   # GET /freeagent_api/requests.json
@@ -62,9 +62,9 @@ class FreeagentApi::RequestsController < ApplicationController
     end
   end
 
-  def send_out
+  def results
     @response = @freeagent_api_request.make_request(authentication: current_user.freeagent_api_authentication)
-    render :send_out
+    render :results
   end
 
   private

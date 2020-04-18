@@ -15,18 +15,20 @@ A simple and entirely unofficial Rails app which I've cobbled together as a demo
 
 In order to be able to authenticate with the FreeAgent API, you'll need an app registered on the FreeAgent Developer Dashboard and a sandbox FreeAgent account. Instructions on how to set these up can be found at https://dev.freeagent.com/docs/quick_start.
 
-After you've registered on the Developer Dashboard, you'll be given a client id and secret which this demo app will expect to be able to retrieve from your environment variables. To export them, run:
+After you've registered a new app on the Developer Dashboard, you'll be given a client id and secret which this demo app will expect to be able to retrieve from your environment variables. To export them, run:
 
 ```
 export FA_API_CLIENT_ID="YOUR_CLIENT_ID"
 export FA_API_CLIENT_SECRET="YOUR_CLIENT_SECRET"
 ```
 
-Finally, you'll need a redirect URL which FreeAgent will use to send you back to the demo app:
+Finally, you'll need a redirect URL which FreeAgent will use to send you back to the demo app after you've approved access to your sandbox account:
 
 ```
 export FA_API_REDIRECT_URL="http://localhost:<PORT_NUMBER>/auth/freeagent/callback"
 ```
+
+The same URL should also be added to the app you've created on the Developer Dashboard under `OAuth redirect URIs`.
 
 Alternatively, you can edit these configs directly in `config/environments/development.rb`
 

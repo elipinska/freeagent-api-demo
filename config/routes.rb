@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :freeagent_api do
     resources :requests do
       member do
-        get :send_out
+        get :results
       end
     end
   end
