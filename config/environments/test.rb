@@ -43,4 +43,13 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  Rails.application.configure do
+    config.oauth = {
+      client_id: "test_client_id",
+      secret: "test_client_secret",
+      redirect_uri: "https://test_redirect_url.com",
+      base_uri: "https://api.sandbox.freeagent.com/v2/approve_app?",
+      token_uri: "https://api.sandbox.freeagent.com/v2/token_endpoint"
+    }
+  end
 end
