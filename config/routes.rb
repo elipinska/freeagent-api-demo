@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+  devise_scope :user do
+    get "/users", to: "freeagent_api/authentications#new"
+  end
   namespace :freeagent_api do
     resources :requests do
       member do

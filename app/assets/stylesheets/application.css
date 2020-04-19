@@ -92,3 +92,12 @@ form label, p.show {
 .header {
   text-align: right;
 }
+
+#error_explanation, .field_with_errors {
+  text-align: center;
+  margin: auto;
+}
+
+.field_with_errors {
+  width: 100%;
+}
