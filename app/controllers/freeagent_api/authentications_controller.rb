@@ -30,10 +30,11 @@ module FreeagentApi
         return
       end
 
+      response_body = JSON.parse(response.body)
       @freeagent_api_authentication = FreeagentApi::Authentication.new(
-        access_token: response["access_token"],
-        refresh_token: response["refresh_token"],
-        expires_at: Time.zone.now + response["expires_in"],
+        access_token: response_body["access_token"],
+        refresh_token: response_body["refresh_token"],
+        expires_at: Time.zone.now + response_body["expires_in"],
         user: current_user
       )
 

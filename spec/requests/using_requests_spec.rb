@@ -96,4 +96,30 @@ RSpec.describe "Using requests", :type => :request do
     expect(response.body).to include("API responded with status 200")
     expect(response.body).to include("<td>https://api.sandbox.freeagent.com/v2/users/2604</td>")
   end
+
+  it "shows a special message if there was no response body to show" do
+    stub_request(:post, "https://api.sandbox.freeagent.com/v2/invoices")
+      .to_return(status: 201)
+
+    get_request = create(:request).tap do |request |
+      request.endpoint = "v2/invoices"
+      request.method = "post"
+      request.body = "{invoice_attributes: attributes}".to_json
+      request.save!
+    end
+
+    authentication = create(:authentication).tap do |auth|
+      auth.user = user
+      auth.save!
+    end
+
+    get "/freeagent_api/requests/#{get_request.id}"
+    expect(response.body).to include("Send request")
+
+    get "/freeagent_api/requests/#{get_request.id}/trigger"
+    expect(response).to render_template(:trigger)
+    expect(response.body).to include("API responded with status 201")
+    expect(response.body).to include("And that's all we know!")
+    expect(response.body).to include("¯\\_(ツ)_/¯")
+  end
 end
