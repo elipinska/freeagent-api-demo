@@ -14,4 +14,9 @@ RSpec.describe FreeagentApi::Request, :type => :model do
       )
     end
   end
+
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:endpoint) }
+    it { is_expected.to validate_presence_of(:method) }
+  end
 end
